@@ -1,0 +1,110 @@
+html {
+	font-size: 20px;
+	box-sizing: border-box;
+}
+
+body {
+	text-align: center;
+	color: #555;
+	background: radial-gradient(circle, #fff 15%, #ccc);
+	background-size: cover;
+	font-size: 1rem;
+	font-family: Roboto Slab, sans-serif;
+	margin-top: 1em;
+}
+
+.board {
+	margin: 30px auto;
+	display: flex;
+	flex-flow: row;
+	border: 2px solid;
+	width: 60%;
+	height: calc(260px) !important;
+	max-width: 100%;
+	resize: both;
+	overflow-x: auto;
+	border-radius: 20px;
+}
+
+.rows {
+	flex: 7;
+	display: flex;
+	flex-direction: column;
+}
+
+.kalaha {
+	flex: 1;
+	border-radius: 70px;
+  width: 100px!important;
+}
+
+.row {
+	flex: 1;
+	display: flex;
+}
+
+.kalaha, .pit {
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: solid 2px;
+	cursor: default;
+}
+
+
+.pit {
+	flex: 1;
+	border-radius: 70%;
+}
+
+[data-player="two"] .row.player-two .pit,
+[data-player="one"] .row.player-one .pit {
+	cursor: grab;
+}
+
+[data-player="two"] .status,
+.player-two, .player-two .pit {
+	font-size: large;
+	font-weight: bold;
+}
+
+[data-player="one"] .status,
+.player-one, .player-one .pit {
+	font-size: large;
+	font-weight: bold;
+}
+
+button {
+	cursor: pointer;
+	padding: 7px 13px;
+	border: 1px solid ;
+	border-radius: 3px;
+
+}
+
+.player-one {
+  border: solid 3px #1bfc86;
+}
+
+.player-two {
+  border: solid 3px cornflowerblue;
+}
+
+.no-boarder {
+  border: none!important;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+  }
+  .center h4{
+  align-self: center;
+  }
+
+  .pit-content {
+	height: 35% !important;
+    width:7% !important;
+    margin: 2% !important;
+}

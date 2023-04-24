@@ -1,0 +1,45 @@
+<div class="container">
+
+    <br>
+    <br>
+    <br/><br/><br/>
+
+    <div>
+      <div class="center" >Player Two</div>
+        <mat-grid-list cols="8" rowHeight="120px" *ngIf="this.board" class="center board">
+            <mat-grid-tile colspan="1" rowspan="2" class="player-two kalaha">
+                    {{ board.rowTwo.kalahaStones }}
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1" class="pit pit-content player-two" (click)="play(number, 'TWO', board.rowTwo.pits)"
+            [ngStyle]="{'cursor': (this.board.gameOver === false && this.board.nextPlayer === 'TWO' && board.rowTwo.pits[number].stones > 0) ? 'grab' : 'default'}"
+                *ngFor="let number of [5, 4, 3, 2, 1, 0]">
+                    {{ board.rowTwo.pits[number].stones }}
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" class="player-one kalaha" rowspan="2">
+                    {{ board.rowOne.kalahaStones }}
+            </mat-grid-tile>
+            <mat-grid-tile (click)="play(number, 'ONE', board.rowOne.pits)" colspan="1" rowspan="1" class="pit pit-content player-one" [ngStyle]="{'cursor': (this.board.gameOver === false && this.board.nextPlayer === 'ONE' && board.rowOne.pits[number].stones > 0) ? 'grab' : 'default'}" *ngFor="let number of [0, 1, 2, 3, 4, 5]">
+                    {{ board.rowOne.pits[number].stones }}
+            </mat-grid-tile>
+        </mat-grid-list>
+      <div class="center" >Player One</div>
+
+    </div>
+  <form (ngSubmit)="initGame()">
+        <button>Start New Game</button>
+  </form>
+  <div *ngIf="this.board">
+    <div *ngIf="this.board.gameOver === false">
+      Current player: {{ board.nextPlayer}}
+    </div>
+  </div>
+  <div *ngIf="this.board && this.board.gameOver === false">
+      <div *ngIf="this.board.winner === 'ONE'">
+        <div>Winner Player One!</div>
+      </div>
+      <div *ngIf="this.board.winner === 'TWO'">
+        <div>Winner Player Two!</div>
+      </div>
+  </div>
+
+</div>
